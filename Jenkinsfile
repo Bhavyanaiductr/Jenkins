@@ -14,6 +14,11 @@ pipeline {
         stage('BUILD'){
             steps {
                 echo 'This is build stage'
+                sh '''
+                mvn clean
+                mvn compile
+                mvn package
+                '''
             }
         }
         stage('BACKUP') {
