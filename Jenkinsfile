@@ -8,15 +8,18 @@ pipeline {
                 echo "Now it is going to clone the code from github"
                 git clone https://github.com/Bhavyanaiductr/Testing_Project.git
                 echo "clonind is done"
-                mvn clean
-                mvn compile
-                mvn package
                 '''
+
             }
         }
         stage('BUILD'){
             steps {
                 echo 'This is build stage'
+                sh '''
+                mvn clean
+                mvn compile
+                mvn package
+                '''
                 
             }
         }
